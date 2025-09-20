@@ -1,7 +1,7 @@
 // Componente que muestra la lista de usuarios activos en el chat
 import { Component } from '@angular/core'; //Permite definir componentes
 import { CommonModule } from '@angular/common'; //Proporciona directivas comunes como ngIf y ngFor
-import { ChatService } from '../../../../../chat-reactivo - copia/src/app/services/chat.service'; //Importa el servicio de chat
+import { ChatService } from '../../services/chat.service'; //Importa el servicio de chat
 import { Observable } from 'rxjs'; // Importa Observable para manejar flujos de datos
 
 @Component({
@@ -16,8 +16,7 @@ export class UserList {
   users$: Observable<string[]>; //Observable que emite la lista de usuarios activos
   currentUser: string | null; //Indica el nombre del usuario actual que está usando la aplicación
   allUsers: string[] = []; // Lista completa de usuarios en la sala de chat
-  // Para el modal (No implementado)
-  showAll: boolean = false;
+  
 
   
   //El constructor inyecta el servicio ChatService para acceder a la lista de usuarios activos y al usuario actual
@@ -37,11 +36,4 @@ export class UserList {
     */
   }
 
-  //Este método permite ver la lista completa de usuarios en un modal (no implementado)
-  openAllUsers() {
-    this.showAll = true;
-  }
-  closeAllUsers() {
-    this.showAll = false;
-  }
 }
