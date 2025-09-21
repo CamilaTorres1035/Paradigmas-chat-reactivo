@@ -1,0 +1,24 @@
+<!--
+  Contenedor de la lista de mensajes del chat.
+  Hace scroll automático al fondo cuando hay nuevos mensajes.
+  Cada mensaje muestra quién lo envió, el texto y la hora.
+-->
+<div class="message-list" appScrollToBottom [triggerScroll]="messagesTrigger$ | async">
+  <!-- Itera sobre mensajes y separadores de fecha -->
+  <ng-container *ngFor="let item of messagesWithDateSeparators$ | async; trackBy: trackById">
+    <div *ngIf="item.type === 'separator'" class="date-separator">
+      {{ item.label }}
+    </div>
+    <div *ngIf="item.type === 'message'" class="message">
+      <span class="user">{{ item.message.user }}</span>
+      <span class="text">{{ item.message.text }}</span>
+      <span class="timestamp">
+        {{ item.message.timestamp?.toDate ? (item.message.timestamp.toDate() | date:'shortTime') : (item.message.timestamp | date:'shortTime') }}
+      </span>
+    </div>
+  </ng-container>
+</div>
+<!--
+  appScrollToBottom: Directiva personalizada que hace scroll automático al fondo
+  [triggerScroll]: Se activa cada vez que cambia la lista de mensajes
+-->
