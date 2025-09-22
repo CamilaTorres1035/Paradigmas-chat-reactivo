@@ -1,0 +1,154 @@
+/* 🌐 Estilos base para la app de chat */
+body, html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(135deg, #f7f7fb, #f0f2f9);
+	font-family: 'Inter', Arial, sans-serif;
+	color: #2d3436;
+}
+
+/* Contenedor principal */
+.main {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+/* Caja del chat */
+
+/* Nuevo layout: panel lateral fijo y chat principal */
+.chat-layout {
+	display: flex;
+	flex-direction: row;
+	align-items: stretch;
+	width: 100%;
+	max-width: 1100px;
+	min-height: 600px;
+	background: #fff;
+	border-radius: 18px;
+	box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+	overflow: hidden;
+}
+.user-panel.always-open {
+	flex-shrink: 0;
+	border-radius: 0 18px 18px 0;
+	border-right: 1px solid #f1f2f6;
+	min-height: 100%;
+}
+.chat-main {
+	flex: 1 1 0%;
+	display: flex;
+	flex-direction: column;
+	padding: 2.2rem 2.2rem 1.2rem 2.2rem;
+	min-width: 0;
+	min-height: 100%;
+}
+.chat-main app-message-list {
+	flex: 1 1 0%;
+	min-height: 0;
+	margin-bottom: 1.2rem;
+}
+.chat-main app-message-input {
+	margin-top: auto;
+}
+
+/* Ajustes de integración */
+.user-list {
+	margin-bottom: 0.5rem;
+}
+
+.message-list {
+	margin-bottom: 0.5rem;
+}
+
+/* Mensajes */
+.message {
+	margin-bottom: 0.8rem;
+	display: flex;
+	align-items: baseline;
+	gap: 0.6rem;
+	line-height: 1.4;
+}
+.message .user {
+	font-weight: 600;
+	color: #6c5ce7;
+}
+.message .timestamp {
+	font-size: 0.75em;
+	color: #999;
+}
+.message .text {
+	word-break: break-word;
+	color: #2d3436;
+}
+
+/* Estado del usuario */
+.current-user {
+	font-weight: bold;
+	color: #6c5ce7;
+}
+.you {
+	font-size: 0.8em;
+	color: #00b894;
+	margin-left: 0.3em;
+}
+
+/* Formularios generales */
+.join-form, .message-form {
+	display: flex;
+	gap: 0.6rem;
+	align-items: center;
+}
+.join-form input, .message-form input {
+	flex: 1;
+	padding: 0.7rem 1rem;
+	border: 1px solid #e0e0e0;
+	border-radius: 12px;
+	font-size: 1rem;
+	background: #fafafa;
+	transition: border 0.2s, box-shadow 0.2s;
+}
+.join-form input:focus, .message-form input:focus {
+	border-color: #6c5ce7;
+	box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.2);
+	outline: none;
+	background: #fff;
+}
+
+/* Botones */
+.join-form button, .message-form button {
+	padding: 0.7rem 1.2rem;
+	background: linear-gradient(135deg, #6c5ce7, #8e44ad);
+	color: #fff;
+	border: none;
+	border-radius: 12px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s;
+}
+.join-form button:hover, .message-form button:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+}
+.join-form button:active, .message-form button:active {
+	transform: translateY(0);
+	box-shadow: 0 2px 8px rgba(108, 92, 231, 0.25);
+}
+.join-form button:disabled, .message-form button:disabled {
+	background: #dcdde1;
+	cursor: not-allowed;
+	opacity: 0.7;
+	box-shadow: none;
+}
+
+/* Errores */
+.error {
+	color: #e74c3c;
+	font-size: 0.9em;
+	margin-left: 0.5rem;
+	font-weight: 500;
+}
